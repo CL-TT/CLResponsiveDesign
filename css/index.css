@@ -1,0 +1,266 @@
+div,
+ul,
+li,
+button,
+body {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  font-size: 16px;
+  padding-top: 80px;
+}
+
+.wrap {
+  width: 100vw;
+}
+
+/****************头部区域*************/
+.header {
+  width: 100vw;
+  height: 80px;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+}
+
+/* logo部分 */
+.header .logo img {
+  height: 50px;
+  padding-left: 8vw;
+}
+
+/* 导航部分 */
+.header nav {
+  padding-right: 10vw;
+  display: flex;
+}
+
+.header nav ul {
+  display: flex;
+  align-items: center;
+  color: #9d9d9d;
+  font-size: 1rem;
+  height: 0;
+}
+
+.header nav ul li {
+  position: relative;
+  padding: 0px 1.2vw;
+}
+
+.header nav ul li::after {
+  content: '';
+  left: 0;
+  width: 0;
+  height: 2px;
+  bottom: -4.5vh;
+  background-color: black;
+  transition: width 0.8s ease-in-out;
+  position: absolute;
+}
+
+.header nav ul li:hover::after {
+  width: 100%;
+}
+
+.header nav button {
+  width: 50px;
+  height: 50px;
+  background: url('../images/btn.png') no-repeat center;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  display: none;
+  cursor: pointer
+}
+
+/* 头部媒体查询 */
+@media all and (max-width: 768px) {
+  body {
+    padding-top: 50px;
+  }
+
+  .header {
+    height: 50px;
+  }
+
+  .header .logo img {
+    height: 40px;
+  }
+
+  .header nav ul {
+    font-size: 0.9rem;
+  }
+
+  .header nav ul li {
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+  }
+
+  .header nav ul li::after {
+    bottom: 2px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .header nav button {
+    display: block;
+  }
+
+  .header nav ul {
+    flex-wrap: wrap;
+    position: relative;
+    top: 50px;
+    height: 0px;
+    min-width: 60px;
+    opacity: 0;
+    transition: all .8s ease-in-out;
+  }
+
+  .header nav ul li {
+    width: 98%;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #bcbcbc;
+    background: #eee;
+  }
+
+  .header nav ul li::after {
+    bottom: -1px;
+  }
+}
+
+/*****************轮播图部分*******************/
+.wrap .playpic {
+  width: 100vw;
+  height: 36vw;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.wrap .playpic ul {
+  width: 400vw;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  left: 0vw;
+}
+
+.wrap .playpic ul li {
+  width: 100vw;
+  height: 100%;
+}
+
+.wrap .playpic li img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/**************主体项目部分***********/
+.wrap .project {
+  margin: 0 auto;
+}
+
+.wrap .project .title {
+  text-align: center;
+  color: #9d9d9d;
+}
+
+.wrap .project .list {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.wrap .project .list .list-item {
+  border: 1px solid #ddd;
+  text-align: center;
+  margin: 15px 0;
+  padding: 20px 10px 10px;
+}
+
+.wrap .project .list .list-item img {
+  width: 90%;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all .5s ease;
+}
+
+.wrap .project .list .list-item img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.wrap .project .list .list-item p {
+  font-size: 1rem;
+}
+
+/* 主体部分的媒体查询 */
+@media all and (min-width: 768px) {
+  .wrap .project .list {
+    /* 这个宽度对应着bs中的宽度 */
+    width: 720px;
+  }
+
+  .wrap .project .list .list-item {
+    width: 46%;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .wrap .project .list {
+    /* 这个宽度对应着bs中的宽度 */
+    width: 960px;
+  }
+
+  .wrap .project .list .list-item {
+    width: 30%;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .wrap .project .list {
+    /* 这个宽度对应着bs中的宽度 */
+    width: 1140px;
+  }
+
+  .wrap .project .list .list-item {
+    width: 22%;
+  }
+}
+
+/**************底部部分*************/
+.footer div {
+  width: 100vw;
+  height: 500px;
+  position: relative;
+  background: url('../images/bottom.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+
+/* 遮罩层 */
+.footer div::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
